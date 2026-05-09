@@ -1,93 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lihq'et Bookstore</title>
-  <!-- Google Fonts: Playfair Display for serif, Inter for sans-serif -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <!-- NAVIGATION BAR -->
-  <nav class="navbar" id="navbar">
-    <div class="nav-brand">📚 Lihq'et Bookstore</div>
-    <div class="nav-links">
-      <a href="#hero">Home</a>
-      <a href="#books-list">Books</a>
-      <a href="#add-book-section">Add Book</a>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero-overlay" aria-hidden="true"></div>
-
-    <div class="hero-content" role="region" aria-label="Lihq'et Bookstore welcome">
-      <h1 class="hero-title">📚 Lihq'et Bookstore</h1>
-      <p class="hero-subtitle">Classic reads. Warm light. Timeless stories.</p>
-      <a class="hero-btn" href="#main">Enter Store</a>
-    </div>
-  </section>
-
-  <!-- MAIN / CRUD UI -->
-  <main id="main" class="main" role="main">
-    <h1 class="main-title">Book Inventory</h1>
-
-    <div class="card-container" id="add-book-section">
-      <h2>Add / Edit Book</h2>
-      <form id="add-book-form" novalidate>
-        <input type="hidden" name="id" id="book-id" />
-        <div class="form-group">
-          <label>Title</label>
-          <input type="text" name="title" placeholder="Book Title" required />
-        </div>
-        <div class="form-group">
-          <label>Author</label>
-          <input type="text" name="author" placeholder="Author Name" required />
-        </div>
-        <div class="form-group">
-          <label>Price</label>
-          <input type="number" name="price" placeholder="0.00" step="0.01" required />
-        </div>
-        <div class="form-group">
-          <label>Stock</label>
-          <input type="number" name="stock" placeholder="0" required />
-        </div>
-        <div class="form-group full-width">
-          <button type="submit" id="add-book-btn">Add Book</button>
-        </div>
-      </form>
-    </div>
-
-    <div class="card-container books-container">
-      <h2 id="books-list">Books List</h2>
-      <div class="table-wrap" aria-live="polite">
-        <table id="books-table" aria-describedby="books-list">
-          <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Title</th>
-              <th scope="col">Author</th>
-              <th scope="col">Price</th>
-              <th scope="col">Stock</th>
-              <th scope="col">Actions</th>
-            </tr>
-          </thead>
-          <tbody id="books-table-body">
-            <tr id="loading-row"><td colspan="6">Loading books...</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </main>
-
-  <footer>
-    © 2026 Lihq'et Bookstore — Built by <a href="https://github.com/MrBekK">Bereket K.</a>
-  </footer>
-
-  <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

@@ -1,0 +1,14 @@
+.form-card {
+  margin-bottom: 3rem;
+  border-top: 4px solid var(--primary-color);
+}
+
+.form-actions {
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr;
+  }
+}

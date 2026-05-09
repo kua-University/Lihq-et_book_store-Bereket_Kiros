@@ -1,0 +1,53 @@
+.list-header {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-input {
+  width: 250px;
+}
+
+.filter-select {
+  width: auto;
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+.font-medium {
+  font-weight: 500;
+  color: var(--primary-color);
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-success {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.badge-warning {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.badge-danger {
+  background-color: #fee2e2;
+  color: #b91c1c;
+}
+
+.py-4 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
