@@ -1,0 +1,20 @@
+# Dependencies
+node_modules
+
+# Build output (will be generated inside container)
+dist
+
+# IDE & OS files
+.vscode
+.idea
+*.swp
+Thumbs.db
+.DS_Store
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Logs
+*.log
+npm-debug.log*

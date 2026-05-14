@@ -1,22 +1,50 @@
-version: '3.8'
+# ============================================
+# Lihq'et Bookstore — Docker Compose
+# ============================================
+# 3-service architecture: Frontend (Nginx) + Backend (Node) + Database (MySQL)
+#
+# Usage:
+#   docker-compose up --build        Start all services
+#   docker-compose up --build -d     Start in background
+#   docker-compose down              Stop all services
+#   docker-compose logs -f           Follow logs
 
 services:
-  app:
-    build: .
+  # --- Frontend: React SPA served by Nginx ---
+  frontend:
+    build: ./frontend
+    container_name: lihqet-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - lihqet-network
+
+  # --- Backend: Node.js + Express API ---
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: lihqet-backend
     ports:
       - "3000:3000"
+    env_file: .env
     environment:
-      - PORT=3000
       - DB_HOST=db
-      - DB_USER=${DB_USER:-root}
-      - DB_PASSWORD=${DB_PASSWORD:-password}
-      - DB_NAME=${DB_NAME:-lihqet_books}
+      - NODE_ENV=production
     depends_on:
       db:
         condition: service_healthy
+    restart: unless-stopped
+    networks:
+      - lihqet-network
 
+  # --- Database: MySQL 8.0 ---
   db:
     image: mysql:8.0
+    container_name: lihqet-db
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-password}
@@ -31,6 +59,16 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+      start_period: 30s
+    networks:
+      - lihqet-network
 
+# Named volumes for data persistence
 volumes:
   db_data:
+    driver: local
+
+# Custom network for inter-service communication
+networks:
+  lihqet-network:
+    driver: bridge

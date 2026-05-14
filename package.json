@@ -1,15 +1,21 @@
 {
-  "name": "project_106_book_store",
+  "name": "lihqet-bookstore",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Lihq'et Bookstore — Full-stack CRUD application with MVC + Service Layer architecture",
+  "main": "backend/server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "dev": "nodemon backend/server.js"
+    "dev": "nodemon backend/server.js",
+    "build:frontend": "cd frontend && npm install && npm run build",
+    "docker:up": "docker-compose up --build -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose down && docker-compose up --build -d"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.6",
     "dotenv": "^17.2.3",
     "express": "^5.1.0",
     "mysql2": "^3.15.3"

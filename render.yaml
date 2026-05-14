@@ -1,0 +1,42 @@
+# ============================================
+# Lihq'et Bookstore — Render Blueprint
+# ============================================
+# Deploy with: https://render.com/deploy
+
+services:
+  - type: web
+    name: lihqet-bookstore-api
+    runtime: node
+    buildCommand: npm ci --omit=dev
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: DB_HOST
+        fromDatabase:
+          name: lihqet-db
+          property: host
+      - key: DB_PORT
+        fromDatabase:
+          name: lihqet-db
+          property: port
+      - key: DB_USER
+        fromDatabase:
+          name: lihqet-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: lihqet-db
+          property: password
+      - key: DB_NAME
+        fromDatabase:
+          name: lihqet-db
+          property: database
+    healthCheckPath: /api/books
+
+databases:
+  - name: lihqet-db
+    plan: free
+    databaseName: lihqet_books

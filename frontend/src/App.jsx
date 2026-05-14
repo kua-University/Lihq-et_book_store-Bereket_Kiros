@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Dashboard from './components/Dashboard';
 import BookForm from './components/BookForm';
 import BookList from './components/BookList';
+import API_BASE_URL from './config';
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -11,7 +12,7 @@ function App() {
 
   const fetchBooks = async () => {
     try {
-      const response = await fetch('/api/books');
+      const response = await fetch(`${API_BASE_URL}/api/books`);
       if (!response.ok) throw new Error('Failed to fetch');
       const data = await response.json();
       setBooks(data);
@@ -30,7 +31,7 @@ function App() {
     try {
       if (editingBook) {
         // Update
-        const response = await fetch(`/api/books/${editingBook.id}`, {
+        const response = await fetch(`${API_BASE_URL}/api/books/${editingBook.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bookData),
@@ -38,7 +39,7 @@ function App() {
         if (!response.ok) throw new Error('Failed to update book');
       } else {
         // Add
-        const response = await fetch('/api/books', {
+        const response = await fetch(`${API_BASE_URL}/api/books`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(bookData),
@@ -58,7 +59,7 @@ function App() {
     if (!window.confirm('Are you sure you want to delete this book?')) return;
     
     try {
-      const response = await fetch(`/api/books/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/books/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete book');
