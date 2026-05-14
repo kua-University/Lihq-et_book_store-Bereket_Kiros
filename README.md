@@ -77,6 +77,14 @@ lihqet-bookstore/
 │   ├── vercel.json                # Vercel deployment config
 │   ├── netlify.toml               # Netlify deployment config
 │   └── .env.example               # Frontend environment template
+├── scripts/
+│   ├── setup.sh                   # Project setup automation
+│   ├── deploy.sh                  # Multi-platform deployment script
+│   ├── db-backup.sh               # Database backup & rotation
+│   └── healthcheck.sh             # Service health monitoring
+├── database/
+│   └── seed.sql                   # Sample data for development
+├── Makefile                       # Automation shortcuts (setup, build, docker)
 ├── .github/workflows/
 │   └── ci.yml                     # GitHub Actions CI pipeline
 ├── docker-compose.yml             # 3-service orchestration
@@ -88,6 +96,17 @@ lihqet-bookstore/
 ├── package.json                   # Backend dependencies + scripts
 └── README.md                      # This file
 ```
+
+---
+
+## 🛠️ Automation & Professional Tools
+
+This project includes several professional-grade automation tools:
+
+- **Makefile**: Provides simple shortcuts for complex commands (`make setup`, `make docker-up`, `make backup`).
+- **Shell Scripts**: Custom DevOps scripts for database management, health monitoring, and multi-platform deployment.
+- **TypeScript Definitions**: Located in `backend/types/`, providing formal data structures for the system architecture.
+- **Database Migrations**: Initial schema in `backend/models/bookModel.sql` and seed data in `database/seed.sql`.
 
 ---
 
